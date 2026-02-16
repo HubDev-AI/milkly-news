@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+@config "../tailwind.config.js";
+
+@import "tailwindcss";
+
+/* Milkly News - Brutalist Theme (Noeinoi Inspired) */
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --radius-none: 0px;
+}
+
+@layer base {
+  :root {
+    /* Brutalist High Contrast */
+    --background: 240 6% 4%; /* Dark almost black */
+    --foreground: 0 0% 98%; /* Off-white */
+    
+    --card: 240 6% 4%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 6% 4%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 0 0% 98%; /* White for primary actions/borders */
+    --primary-foreground: 240 6% 4%;
+    
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+    
+    --accent: 183 54% 50%; /* Cyan accent from Milkly brand */
+    --accent-foreground: 240 6% 4%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 20%; /* Dark grey for subtle borders */
+    --input: 240 4% 16%;
+    --ring: 183 54% 50%;
+    
+    --radius: 0px; /* Sharp corners */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'JetBrains Mono', monospace; /* Default to mono for UI */
+    overflow-x: hidden;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', display;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 hover:bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Bebas Neue', display;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Brutalist Container with Glow */
+  .brutalist-container {
+    @apply relative mx-auto my-4 md:my-8 max-w-[96%] md:max-w-[1400px] 
+           border-[1px] md:border-[2px] border-primary/20 bg-background 
+           shadow-[0_0_20px_-10px_rgba(34,211,238,0.1)]; /* Cyan hint */
+  }
+  
+  /* Thick Border Box */
+  .border-thick {
+    border-width: 2px;
+    @apply border-primary/20;
+  }
+
+  /* Interactive Elements */
+  .btn-brutal {
+    @apply border border-primary bg-transparent text-primary 
+           font-mono uppercase tracking-wider
+           hover:bg-primary hover:text-background transition-colors duration-0;
+  }
+  
+  .input-brutal {
+    @apply bg-transparent border border-muted-foreground/40 
+           font-mono text-sm placeholder:text-muted-foreground/50
+           focus:border-accent focus:ring-0 focus:outline-none transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+}
