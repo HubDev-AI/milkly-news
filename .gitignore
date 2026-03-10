@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tooling artifacts
+.memsearch/
+.playwright-mcp/
+playwright-report/
+test-results/
+.last-run.json
